@@ -26,6 +26,6 @@ if __name__ == '__main__':
     game.run()
     
 
-# criada estrura base do projeto.(falta partes dos setings)
-# ja funcionamdno a tela do game
-# criada e testada janela do jogo
+
+
+# (falta partes dos setings)
