@@ -1,7 +1,7 @@
 from os import walk
 import pygame
 
-#estrutura do codigo para importar as sprites.
+
 def import_folder(path):
 	surface_list = []
 

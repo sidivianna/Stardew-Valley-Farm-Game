@@ -7,9 +7,9 @@ class Player(pygame.sprite.Sprite):
         super().__init__(group)
         
         self.import_assets()
-        self.status = 'down_idle'
+        self.status = 'down'
         self.frame_index = 0
-        # usado para carregar as imagens(sprites)
+
 
         # general setup
 
@@ -33,8 +33,13 @@ class Player(pygame.sprite.Sprite):
             full_path = '../Stardew Valley Game/graphics/character/' + animation
             self.animations[animation] = import_folder(full_path)
         print(self.animations)
-        # importar as imagens 
-            
+        
+    def animate(self,dt):
+        self.frame_index += 4 * dt # quantidade de sprites dentro da pasta
+        if self.frame_index >= len(self.animations[self.status]):
+            self.frame_index = 0
+
+        self.image = self.animations[self.status][int(self.frame_index)]
 
 
     def input(self):
@@ -42,18 +47,32 @@ class Player(pygame.sprite.Sprite):
 
         if keys[pygame.K_UP]:
             self.direction.y = -1
+            self.status = 'up'
         elif keys[pygame.K_DOWN]:
             self.direction.y = 1
+            self.status = 'down'
         else:
             self.direction.y = 0
 
         if keys[pygame.K_RIGHT]:
             self.direction.x = 1
+            self.status = 'right'
         elif keys[pygame.K_LEFT]:
             self.direction.x = -1
+            self.status = 'left'
         else:
             self.direction.x = 0
     
+    def get_status(self):
+        # movement
+        # if the player is not moving:
+        if self.direction.magnitude() == 0:
+            # add _idle to the status
+            self.status = self.status.split('_')[0] + '_idle'
+
+        # tool use
+
+
     def move(self,dt):
 
         # normalizing a vector
@@ -69,6 +88,8 @@ class Player(pygame.sprite.Sprite):
 
     def update(self, dt):
         self.input()
+        self.get_status()
         self.move(dt)
+        self.animate(dt)
 
-# criado os movimentos básicos do player.
+# criada a função animate para carregar as sprites em sequencia e criar o efito de animação.
