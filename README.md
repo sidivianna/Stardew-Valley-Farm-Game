@@ -1,8 +1,9 @@
 # Stardew-Valley-Farm-Game
 
-## 1: Criada a estrutura base do jogo.
+Jogo de Fazenda inspirado em Stardew Valley
 
-- Inicialização do Pygame;
-- Configurações básicas de funcionamento;
-- Criação do inicializar;
-- Abertura da tela do jogo.
+# Animando o player
+
+- Criada a função animate para carregar as sprites em sequencia e criar o efeito de animação. 
+
+
