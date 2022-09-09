@@ -2,8 +2,7 @@
 
 Jogo de Fazenda inspirado em Stardew Valley
 
-# Animando o player
+## Usando as ferramentas
 
-- Criada a função animate para carregar as sprites em sequencia e criar o efeito de animação. 
-
-
+- criada as funções para usar as ferramentas
+- criada a função timer para criar o temporizador das ações com as ferrramentas.
