@@ -25,4 +25,4 @@ class Overlay:
         seed_rect = seed_surf.get_rect(midbottom = OVERLAY_POSITIONS['seed'])
         self.display_surface.blit(seed_surf, seed_rect)
 
-        #criada a exibição dos ícones das ferramentas e das sementes na tela.
+        

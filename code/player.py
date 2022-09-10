@@ -12,11 +12,11 @@ class Player(pygame.sprite.Sprite):
         self.status = 'down'
         self.frame_index = 0
 
-
         # general setup
 
         self.image = self.animations[self.status][self.frame_index]
         self.rect = self.image.get_rect(center = pos)
+        self.z = LAYERS['main']
 
         # movement attributes
 
@@ -118,10 +118,6 @@ class Player(pygame.sprite.Sprite):
                 self.selected_seed = self.seeds[self.seed_index]
                 print(self.selected_seed)
 
-            
-                
-
-    
     def get_status(self):
         # movement
         # if the player is not moving:
