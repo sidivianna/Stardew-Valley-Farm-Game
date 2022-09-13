@@ -1,9 +1,6 @@
 # Stardew-Valley-Farm-Game
-
 Jogo de Fazenda inspirado em Stardew Valley
 
-## Trocando as ferramentas
+## Criando o overlay
 
-- Criando a funcionalidade de trocar as ferramentas
-
-
+- Criada funcionalidade para mostrar as ferramentas e itens na tela.
