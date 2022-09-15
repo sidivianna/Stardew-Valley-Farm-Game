@@ -5,7 +5,7 @@ from support import *
 from timer import Timer
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self, pos, group, collision_sprites, tree_sprites, interaction):
+    def __init__(self, pos, group, collision_sprites, tree_sprites, interaction, soil_layer):
         super().__init__(group)
         
         self.import_assets()
@@ -13,19 +13,16 @@ class Player(pygame.sprite.Sprite):
         self.frame_index = 0
 
         # general setup
-
         self.image = self.animations[self.status][self.frame_index]
         self.rect = self.image.get_rect(center = pos)
         self.z = LAYERS['main']
 
         # movement attributes
-
         self.direction = pygame.math.Vector2()
         self.pos = pygame.math.Vector2(self.rect.center)
         self.speed = 200
 
         # collision
-        
         self.hitbox = self.rect.copy().inflate((-126,-70))
         self.collision_sprites = collision_sprites
 
@@ -59,11 +56,13 @@ class Player(pygame.sprite.Sprite):
         self.tree_sprites = tree_sprites
         self.interaction = interaction
         self.sleep = False
+        self.soil_layer = soil_layer
 
     def use_tool(self):
         print('tool use')
         if self.selected_tool == 'hoe':
-            pass
+            self.soil_layer.get_hit(self.target_pos)
+
         if self.selected_tool == 'axe':
             for tree in self.tree_sprites.sprites():
                 if tree.rect.collidepoint(self.target_pos):
