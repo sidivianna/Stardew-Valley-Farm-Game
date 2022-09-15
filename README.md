@@ -1,6 +1,6 @@
 # Stardew-Valley-Farm-Game
 Jogo de Fazenda inspirado em Stardew Valley
 
-## Criando o overlay
-
-- Criada funcionalidade para mostrar as ferramentas e itens na tela.
+- Criando a câmera do jogo;
+- importando o chão jogo;
+- configurando a câmera para o que o personagem sempre fique no meio da tela.
