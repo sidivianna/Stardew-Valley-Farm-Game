@@ -4,11 +4,7 @@ from support import *
 from timer import Timer
 
 class Player(pygame.sprite.Sprite):
-<<<<<<< HEAD
     def __init__(self, pos, group, collision_sprites, tree_sprites):
-=======
-    def __init__(self, pos, group):
->>>>>>> 81d516591ebc6d553ad6acd290fdcb7a850331ac
         super().__init__(group)
         
         self.import_assets()
