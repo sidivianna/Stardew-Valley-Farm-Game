@@ -1,4 +1,3 @@
-
 import pygame
 from settings import *
 from support import *
@@ -220,4 +219,3 @@ class Player(pygame.sprite.Sprite):
         self.get_status()
         self.move(dt)
         self.animate(dt)
-
