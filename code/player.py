@@ -1,11 +1,10 @@
-
 import pygame
 from settings import *
 from support import *
 from timer import Timer
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self, pos, group, collision_sprites):
+    def __init__(self, pos, group):
         super().__init__(group)
         
         self.import_assets()
@@ -23,11 +22,6 @@ class Player(pygame.sprite.Sprite):
         self.direction = pygame.math.Vector2()
         self.pos = pygame.math.Vector2(self.rect.center)
         self.speed = 200
-
-        # collision
-        
-        self.hitbox = self.rect.copy().inflate((-126,-70))
-        self.collision_sprites = collision_sprites
 
         # timers
         self.timers = {
@@ -138,26 +132,6 @@ class Player(pygame.sprite.Sprite):
         for timer in self.timers.values():
             timer.update()
 
-    def collision(self, direction):
-        for sprite in self.collision_sprites.sprites():
-            if hasattr(sprite, 'hitbox'):
-                if sprite.hitbox.colliderect(self.hitbox):
-                    if direction == 'horizontal':
-                        if self.direction.x > 0: # movendo para a direita
-                            self.hitbox.right = sprite.hitbox.left
-                        if self.direction.x < 0: # movendo para a esquerda
-                            self.hitbox.left = sprite.hitbox.right
-                        self.rect.centerx = self.hitbox.centerx
-                        self.pos.x = self.hitbox.centerx
-
-                    if direction == 'vertical':
-                        if self.direction.y > 0: # movendo para a baixo
-                            self.hitbox.bottom = sprite.hitbox.top
-                        if self.direction.y < 0: # movendo para a cima
-                            self.hitbox.top = sprite.hitbox.bottom
-                        self.rect.centery = self.hitbox.centery
-                        self.pos.y = self.hitbox.centery
-
     def move(self,dt):
 
         # normalizing a vector
@@ -166,15 +140,10 @@ class Player(pygame.sprite.Sprite):
 
         # horizontal movement 
         self.pos.x += self.direction.x * self.speed * dt
-        self.hitbox.centerx = round(self.pos.x)
-        self.rect.centerx = self.hitbox.centerx
-        self.collision('horizontal')
-
+        self.rect.centerx = self.pos.x
         # vertical movement
         self.pos.y += self.direction.y * self.speed * dt
-        self.hitbox.centery = round(self.pos.y)
-        self.rect.centery = self.hitbox.centery
-        self.collision('vertical')
+        self.rect.centery = self.pos.y
 
     def update(self, dt):
         self.input()
@@ -184,3 +153,5 @@ class Player(pygame.sprite.Sprite):
         self.move(dt)
         self.animate(dt)
 
+# criada as funções para usar as ferramentas
+# criada a função timer para criar o temporizador das ações com as ferrramentas.
