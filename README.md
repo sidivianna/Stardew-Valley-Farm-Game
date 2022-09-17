@@ -1,8 +1,7 @@
 # Stardew-Valley-Farm-Game
 Jogo de Fazenda inspirado em Stardew Valley
 
-## Trabalhando nas árvores
-- Criada a definição para o alvo das ações das ferramentas;
-- Criada a função da maçã cair da árvore ao recebem golpe do machado;
-- Criada a função de cortar a árvore.
+## Partículas
+- Criado um efeito de partícula ao derrubar a maçã e ao cortar a árvore.
+ - (cria um breve imagem branca do objeto no local onde ele estava)
 
