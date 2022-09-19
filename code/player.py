@@ -58,7 +58,6 @@ class Player(pygame.sprite.Sprite):
         self.soil_layer = soil_layer
 
     def use_tool(self):
-        print('tool use')
         if self.selected_tool == 'hoe':
             self.soil_layer.get_hit(self.target_pos)
 
@@ -69,12 +68,11 @@ class Player(pygame.sprite.Sprite):
 
 
         if self.selected_tool == 'water':
-            pass
+            self.soil_layer.water(self.target_pos)
 
     def get_target_pos(self):
         self.target_pos = self.rect.center + PLAYER_TOOL_OFFSET[self.status.split('_')[0]]
-
-       
+  
     def use_seed(self):
         pass
 
