@@ -2,7 +2,6 @@
 Jogo de Fazenda inspirado em Stardew Valley
 
 ## Inicializando o solo
-- definidas as limitações da área cultivável da fazenda.
-- criando a funcionalidade de arar a terra.
-
+- adicionada a funcionalidade de regar o solo;
+- adicionada a funcionalidade de reiniciar o dia e o solo estar seco novamente.
 
