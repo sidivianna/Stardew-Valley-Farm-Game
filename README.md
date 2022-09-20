@@ -1,8 +1,12 @@
 # Stardew-Valley-Farm-Game
 Jogo de Fazenda inspirado em Stardew Valley
 
-## Regando o solo
-- adicionada a funcionalidade de regar o solo;
-- adicionada a funcionalidade de reiniciar o dia e o solo estar seco novamente.
+## Chuva
+
+- adicionada a chuva mo jogo:
+  - randomizados os dias chuvosos.
+- criada a funcionalidade de o solo estar todo molhado nos dias de chuva.
+- criada a funcionalidade de o solo reiniciar seco no dia sem chuva apos trocar de dia.
+
 
 
