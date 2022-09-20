@@ -1,3 +1,4 @@
+from enum import EnumMeta
 import pygame
 from settings import *
 from pytmx.util_pygame import load_pygame
@@ -61,6 +62,8 @@ class SoilLayer:
                 if 'F' in self.grid[y][x]:
                     self.grid[y][x].append('X')
                     self.create_soil_tiles()
+                    if self.raining:
+                        self.water_all()
 
     def water(self, target_pos):
         for soil_sprite in self.soil_sprites.sprites():
@@ -74,6 +77,15 @@ class SoilLayer:
                 pos = soil_sprite.rect.topleft
                 WaterTile(pos, surf, [self.all_sprites, self.water_sprites])
 
+    def water_all(self):
+        for index_row, row in enumerate(self.grid):
+            for index_col, cell in enumerate(row):
+                if 'X' in cell and 'W' not in cell:
+                    cell.append('W')
+                    x = index_col * TILE_SIZE
+                    y = index_row * TILE_SIZE
+                    WaterTile((x,y), choice(self.water_surfs), [self.all_sprites, self.water_sprites])
+
     def remove_water(self):
         for sprite in self.water_sprites.sprites():
             sprite.kill()
@@ -82,7 +94,6 @@ class SoilLayer:
             for cell in row:
                 if 'W' in cell:
                     cell.remove('W')
-
 
     def create_soil_tiles(self):
         self.soil_sprites.empty()
