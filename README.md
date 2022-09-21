@@ -1,12 +1,12 @@
 # Stardew-Valley-Farm-Game
 Jogo de Fazenda inspirado em Stardew Valley
 
-## Chuva
+## Criando as plantas do jogo
 
-- adicionada a chuva no jogo:
-  - randomizados os dias chuvosos.
-- criada a funcionalidade de o solo estar todo molhado nos dias de chuva.
-- criada a funcionalidade de o solo reiniciar seco no dia sem chuva apos trocar de dia.
+- criada a funcionalidade de plantar as sementes
+- criado o ciclo de crescimento das plantas
+- habilitando a planta para ser colhida
+- criada a colisão para as plantas.
 
 
 
