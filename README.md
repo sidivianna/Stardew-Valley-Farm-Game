@@ -1,8 +1,8 @@
 # Stardew-Valley-Farm-Game
 Jogo de Fazenda inspirado em Stardew Valley
 
-## Regando o solo
-- adicionada a funcionalidade de regar o solo;
-- adicionada a funcionalidade de reiniciar o dia e o solo estar seco novamente.
+## O dia do jogo
+- criado o passar do tempo no dia do jogo
+- alteração na luminosidade do dia de acordo com o passar do tempo.
 
 
