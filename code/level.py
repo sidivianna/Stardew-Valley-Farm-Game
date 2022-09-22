@@ -8,7 +8,7 @@ from pytmx.util_pygame import load_pygame
 from support import *
 from transition import Transition
 from soil import SoilLayer
-from sky import Rain
+from sky import Rain, Sky
 from random import randint
 
 class Level:
@@ -32,6 +32,7 @@ class Level:
         self.rain = Rain(self.all_sprites)
         self.raining = randint(0,10) > 3
         self.soil_layer.raining = self.raining
+        self.sky = Sky()
 
     def setup(self):
         tmx_data = load_pygame('../Stardew Valley Game/data/map.tmx')
@@ -123,7 +124,6 @@ class Level:
                     Particle(plant.rect.topleft, plant.image, self.all_sprites, z = LAYERS['main'])
                     self.soil_layer.grid[plant.rect.centery // TILE_SIZE][plant.rect.centerx // TILE_SIZE].remove('P')
 
-
     def run(self, dt):
         self.display_surface.fill('black')
         self.all_sprites.custom_draw(self.player)
@@ -136,11 +136,14 @@ class Level:
         if self.raining:
             self.rain.update()
 
+        # daytime
+        self.sky.display(dt)
+
+
         # transition overlay
         if self.player.sleep:
             self.transition.play()
         
-
 class CameraGroup(pygame.sprite.Group):
     def __init__(self):
         super().__init__()
