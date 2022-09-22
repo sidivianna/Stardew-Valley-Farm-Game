@@ -34,7 +34,7 @@ class Plant(pygame.sprite.Sprite):
         self.age = 0
         self.max_age = len(self.frames) - 1
         self.grow_speed = GROW_SPEED[plant_type]
-        self.haverstable = False
+        self.harvestable = False
 
         # sprite setup
         self.image = self.frames[self.age]
@@ -52,7 +52,7 @@ class Plant(pygame.sprite.Sprite):
 
             if self.age >= self.max_age:
                 self.age = self.max_age
-                self.haverstable = True
+                self.harvestable = True
 
             self.image = self.frames[int(self.age)]
             self.rect = self.image.get_rect(midbottom = self.soil.rect.midbottom + pygame.math.Vector2(0,self.y_offset))
