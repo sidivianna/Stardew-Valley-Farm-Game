@@ -70,7 +70,6 @@ class Tree(Generic):
         self.alive = True
         stump_path = f'../Stardew Valley Game/graphics/stumps/{"small" if name == "Small" else "large"}.png'
         self.stump_surf = pygame.image.load(stump_path).convert_alpha()
-        self.invul_timer = Timer(200)
 
         # apples
         self.apples_surf = pygame.image.load('../Stardew Valley Game/graphics/fruit/apple.png')
@@ -80,10 +79,16 @@ class Tree(Generic):
 
         self.player_add = player_add
 
+        # sounds
+        self.axe_sound = pygame.mixer.Sound('../Stardew Valley Game/audio/axe.mp3')
+
     def damage(self):
 
         # damaging the tree
         self.health -= 1
+
+        # play sound
+        self.axe_sound.play()
 
         # remove an apple
         if len(self.apple_sprites.sprites()) > 0:
@@ -108,7 +113,6 @@ class Tree(Generic):
     def update(self,dt):
         if self.alive:
             self.check_death()
-
 
     def create_fruit(self):
         for pos in self.apple_pos:
