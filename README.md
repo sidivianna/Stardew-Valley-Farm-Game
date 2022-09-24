@@ -6,3 +6,4 @@ Jogo de Fazenda inspirado em Stardew Valley
 - alteração na luminosidade do dia de acordo com o passar do tempo.
 
 
+
