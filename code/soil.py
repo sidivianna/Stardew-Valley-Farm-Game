@@ -181,7 +181,7 @@ class SoilLayer:
                     tile_type = 'o'
 
                     # all sides
-                    if all((t,r,b,l)): tile_type = 'X'
+                    if all((t,r,b,l)): tile_type = 'x'
 
                     # horizontal tiles only
                     if l and not any((t,r,b)): tile_type = 'r'

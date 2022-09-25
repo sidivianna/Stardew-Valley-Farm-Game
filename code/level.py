@@ -1,4 +1,3 @@
-
 import pygame
 from settings import *
 from player import Player
@@ -74,8 +73,7 @@ class Level:
                 surf = obj.image, 
                 groups = [self.all_sprites, self.collision_sprites, self.tree_sprites], 
                 name = obj.name,
-                player_add = self.player_add
-                )
+                player_add = self.player_add)
 
         # wildflowers
         for obj in tmx_data.get_layer_by_name('Decoration'):
@@ -135,6 +133,9 @@ class Level:
             for apple in tree.apple_sprites.sprites():
                 apple.kill()
             tree.create_fruit()
+
+        # sky
+        self.sky.start_color = [255,255,255]
 
     def plant_collision(self):
         if self.soil_layer.plant_sprites:
