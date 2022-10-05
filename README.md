@@ -17,15 +17,16 @@ Suas principais mecânicas envolvem o cultivo de vegetais na fazenda</h2>
 <h2 align="center"> Características e Funcionalidades: </h2>
 
 <h4 align="center"> - Importado o player e todas as sprites utilizadas no jogo;</h4>
-<h4 align="center"> - Layout de feramentas exibidos na tela; </h4>
+<h4 align="center"> - Layout de ferramentas exibidos na tela; </h4>
 <h4 align="center"> - Inventário e sistema de troca de ferramentas e sementes; </h4>
-<h4 align="center"> - Sistema de preparação do solo, plantio, e irrigação para o cultivo; </h4>
+<h4 align="center"> - Sistema de preparação do solo, plantio e irrigação para o cultivo; </h4>
 <h4 align="center"> - Crescimento das plantas; </h4>
 <h4 align="center"> - Sistemas de colher frutos silvestres no cenário; </h4>
 <h4 align="center"> - Chuva no jogo com interação com a irrigação do solo </h4>
 <h4 align="center"> - Sistema de mercador para comprar e vender produtos </h4>
-<h4 align="center"> - O jogo conta com adinamica de passar do dia e os tons de cores da tela escurecem com o passar do tempo </h4>
-<h4 align="center"> - sistema de reiniciar um novo dia ao ir dormir; </h4>
+<h4 align="center"> - O jogo conta com a dinamica de passar do dia e os tons de cores da tela escurecem com o passar do tempo </h4>
+<h4 align="center"> - Sistema de reiniciar um novo dia ao ir dormir; </h4>
+<h4 align="center"> - Sistema de sons do jogo; </h4>
 
 <p align="center">
 <img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>
