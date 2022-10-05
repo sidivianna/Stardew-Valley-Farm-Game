@@ -57,7 +57,6 @@ class Plant(pygame.sprite.Sprite):
             self.image = self.frames[int(self.age)]
             self.rect = self.image.get_rect(midbottom = self.soil.rect.midbottom + pygame.math.Vector2(0,self.y_offset))
 
-
 class SoilLayer:
     def __init__(self, all_sprites, collision_sprites):
 
@@ -72,9 +71,15 @@ class SoilLayer:
         self.soil_surfs = import_folder_dict('../Stardew Valley Game/graphics/soil/')
         self.water_surfs = import_folder('../Stardew Valley Game/graphics/soil_water/')
         
-
         self.create_soil_grid()
         self.create_hit_rects()
+
+        # sounds
+        self.hoe_sound = pygame.mixer.Sound('../Stardew Valley Game/audio/hoe.wav')
+        self.hoe_sound.set_volume(0.1)
+
+        self.plant_sound = pygame.mixer.Sound('../Stardew Valley Game/audio/plant.wav')
+        self.plant_sound.set_volume(0.2)
 
     def create_soil_grid(self):
         ground = pygame.image.load('../Stardew Valley Game/graphics/world/ground.png')
@@ -97,6 +102,8 @@ class SoilLayer:
     def get_hit(self, point):
         for rect in self.hit_rects:
             if rect.collidepoint(point):
+                self.hoe_sound.play()
+
                 x = rect.x // TILE_SIZE
                 y = rect.y // TILE_SIZE
 
@@ -146,6 +153,7 @@ class SoilLayer:
     def plant_seed(self, target_pos, seed):
         for soil_sprite in self.soil_sprites.sprites():
             if soil_sprite.rect.collidepoint(target_pos):
+                self.plant_sound.play()
 
                 x = soil_sprite.rect.x // TILE_SIZE
                 y = soil_sprite.rect.y // TILE_SIZE
@@ -173,7 +181,7 @@ class SoilLayer:
                     tile_type = 'o'
 
                     # all sides
-                    if all((t,r,b,l)): tile_type = 'X'
+                    if all((t,r,b,l)): tile_type = 'x'
 
                     # horizontal tiles only
                     if l and not any((t,r,b)): tile_type = 'r'

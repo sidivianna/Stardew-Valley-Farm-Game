@@ -1,7 +1,6 @@
 from os import walk
 import pygame
 
-
 def import_folder(path):
 	surface_list = []
 
