@@ -6,3 +6,5 @@ Jogo de Fazenda inspirado em Stardew Valley
 - adicionados os sons de efeito de uso das ferramentas do jogo.
 
 
+
+
