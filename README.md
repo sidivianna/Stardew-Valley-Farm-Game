@@ -6,3 +6,4 @@ Jogo de Fazenda inspirado em Stardew Valley
 - criado o menu dos itens na tela ao apertar enter.
 
 
+
